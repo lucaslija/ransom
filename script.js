@@ -1,14 +1,16 @@
 const note = document.getElementById("note");
 const ransom = document.getElementById("ransom");
 
-note.addEventListener("input", changeText);
+note.addEventListener("keydown", changeText);
+
+const fontArray = ['Arial', 'Verdana', 'Courier New', 'Georgia', 'Comic Sans MS'];
+const ascii = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
 
 function changeText(e) {
-  // on keypress (input), change:
-  // font,
-  // font-size,
-  // text-rotation
-  // but for the **next** character inputted;
-  // i.e., keep the styling of previous characters.
-  ransom.textContent = e.target.value;
+  let styleTagStart = "<style "
+  if (e.key === "Backspace") {
+    ransom.innerHTML = ransom.innerHTML.slice(0, -1);
+  } else if (ascii.includes(e.key)) {
+    ransom.innerHTML += e.key;
+  }
 }
