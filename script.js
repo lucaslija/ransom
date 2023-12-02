@@ -9,14 +9,9 @@ const fontArray = [
   "Verdana",
   "Courier New",
   "Georgia",
-  "Comic Sans MS"
+  "Comic Sans MS",
 ];
-const weightArray = [
-  "normal",
-  "bold",
-  "lighter",
-  "bolder"
-];
+const weightArray = ["normal", "bold", "lighter", "bolder"];
 const ascii =
   " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 let fontIndex = 0;
@@ -35,7 +30,7 @@ function changeText(e) {
       // style new single-character span with new font, new size
       newSpan.style.fontFamily = fontArray[fontIndex];
       newSpan.style.fontWeight = weightArray[weightIndex];
-      newSpan.style.fontSize = `${textSize}rem`
+      newSpan.style.fontSize = `${textSize}rem`;
       // select next font from array
       if (fontIndex == fontArray.length - 1) {
         fontIndex = 0;
@@ -49,7 +44,7 @@ function changeText(e) {
         weightIndex++;
       }
       // randomize text size between 1.5 and .75 rem
-      textSize = (Math.random() * .75 + .75);
+      textSize = Math.random() * 0.75 + 0.75;
     }
     // add new span
     ransom.appendChild(newSpan);
