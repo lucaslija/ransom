@@ -26,3 +26,9 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+#ransom {
+  height: 50px;
+  background-color: black;
+  color: greenyellow;
+}
