@@ -7,10 +7,13 @@ const fontArray = ['Arial', 'Verdana', 'Courier New', 'Georgia', 'Comic Sans MS'
 const ascii = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
 
 function changeText(e) {
-  let styleTagStart = "<style "
   if (e.key === "Backspace") {
-    ransom.innerHTML = ransom.innerHTML.slice(0, -1);
+    // returns the string with the last span cut off
+    ransom.removeChild(ransom.lastChild);
   } else if (ascii.includes(e.key)) {
-    ransom.innerHTML += e.key;
+    // don't just add the key, add it within a styled span
+    const newSpan = document.createElement("span");
+    newSpan.innerText = e.key;
+    ransom.appendChild(newSpan);
   }
 }
