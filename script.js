@@ -1,8 +1,7 @@
-const note = document.getElementById("note");
 const ransom = document.getElementById("ransom");
 
-note.addEventListener("keydown", changeText);
-note.addEventListener("keyup", clearText);
+document.addEventListener("keydown", changeText);
+document.addEventListener("keyup", clearText);
 
 const fontArray = [
   "Arial",
@@ -19,6 +18,7 @@ let weightIndex = 0;
 let textSize = 1;
 
 function changeText(e) {
+  e.preventDefault();
   if (e.key === "Backspace") {
     // removes the last span added
     ransom.removeChild(ransom.lastChild);
