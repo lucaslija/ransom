@@ -14,7 +14,15 @@ const fontArray = [
   "Comic Sans MS",
 ];
 const weightArray = ["normal", "bold", "lighter", "bolder"];
-const colorArray = ["cornsilk", "white", "azure", "aliceblue", "antiquewhite", "beige", "bisque"]
+const colorArray = [
+  "cornsilk",
+  "white",
+  "azure",
+  "aliceblue",
+  "antiquewhite",
+  "beige",
+  "bisque",
+];
 const ascii =
   " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 let fontIndex = 0;
