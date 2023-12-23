@@ -44,6 +44,7 @@ function changeText(e) {
     newSpan.innerText = e.key;
     if (e.key != " ") {
       newSpan.style.display = "inline-block";
+      newSpan.style.margin = ".1rem";
       // style new single-character span with new font, new size
       newSpan.style.fontFamily = fontArray[fontIndex];
       newSpan.style.fontWeight = weightArray[weightIndex];
