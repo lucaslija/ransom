@@ -30,24 +30,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1rem;
 }
 
 main {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 #ransom {
-  height: 50px;
+  height: 80%;
   color: black;
-  width: 50%;
+  width: 35rem;
+}
+
+#clear-button {
+  margin-bottom: 1rem;
 }
 
 footer {
@@ -58,8 +67,6 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 0;
 }
 
 footer a {

@@ -1,17 +1,19 @@
 const ransom = document.getElementById("ransom");
 const copyButton = document.getElementById("copy-button");
+const clearButton = document.getElementById("clear-button");
 
 document.addEventListener("keydown", changeText);
 document.addEventListener("keyup", clearText);
 
 copyButton.addEventListener("click", copyHTML);
+clearButton.addEventListener("click", clearNote);
 
 const fontArray = [
   "Arial",
   "Verdana",
-  "Courier New",
+  "Courier Prime",
   "Georgia",
-  "Comic Sans MS",
+  "Playpen Sans"
 ];
 const weightArray = ["normal", "bold", "lighter", "bolder"];
 const colorArray = [
@@ -66,8 +68,8 @@ function changeText(e) {
       } else {
         colorIndex++;
       }
-      // randomize text size between 1.5 and .75 rem
-      textSize = Math.random() * 0.75 + 0.75;
+      // randomize text size between 2.5 and 1.75 rem
+      textSize = (Math.random() * 1.5) + 1;
       // randomize text rotation between 15 and -15 degrees
       textRotation = Math.random() * 30 - 15;
     }
@@ -77,13 +79,14 @@ function changeText(e) {
 }
 
 function clearText() {
-  if (note.value === "") {
+  if (ransom.value === "") {
     removeAllChildNodes(ransom);
   }
 }
 
 function removeAllChildNodes(parent) {
-  while (parent.firstChild) {
+  while (parent.hasChildNodes()) {
+    console.log(parent.firstChild);
     parent.removeChild(parent.firstChild);
   }
 }
@@ -91,4 +94,8 @@ function removeAllChildNodes(parent) {
 function copyHTML() {
   navigator.clipboard.writeText(ransom.innerHTML);
   alert("Copied the raw HTML for your ransom note!");
+}
+
+function clearNote() {
+  ransom.innerHTML = "";
 }
