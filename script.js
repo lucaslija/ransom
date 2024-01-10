@@ -27,11 +27,10 @@ const colorArray = [
 ];
 const ascii =
   " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
-let fontIndex = 0;
-let weightIndex = 0;
-let colorIndex = 0;
-let textSize = 1;
-let textRotation = 0;
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * (array.length));
+}
 
 function changeText(e) {
   e.preventDefault();
@@ -45,34 +44,12 @@ function changeText(e) {
     if (e.key != " ") {
       newSpan.style.display = "inline-block";
       newSpan.style.margin = ".1rem";
-      // style new single-character span with new font, new size
-      newSpan.style.fontFamily = fontArray[fontIndex];
-      newSpan.style.fontWeight = weightArray[weightIndex];
-      newSpan.style.backgroundColor = colorArray[colorIndex];
-      newSpan.style.fontSize = `${textSize}rem`;
-      newSpan.style.transform = `rotate(${textRotation}deg)`;
-      // select next font from array
-      if (fontIndex == fontArray.length - 1) {
-        fontIndex = 0;
-      } else {
-        fontIndex++;
-      }
-      // select next weight from array
-      if (weightIndex == weightArray.length - 1) {
-        weightIndex = 0;
-      } else {
-        weightIndex++;
-      }
-      // select next color
-      if (colorIndex == colorArray.length - 1) {
-        colorIndex = 0;
-      } else {
-        colorIndex++;
-      }
-      // randomize text size between 2.5 and 1.75 rem
-      textSize = (Math.random() * 1.5) + 1;
-      // randomize text rotation between 15 and -15 degrees
-      textRotation = Math.random() * 30 - 15;
+      // style new single-character span with new font, new size, new etc.
+      newSpan.style.fontFamily = fontArray[getRandomIndex(fontArray)];
+      newSpan.style.fontWeight = weightArray[getRandomIndex(weightArray)];
+      newSpan.style.backgroundColor = colorArray[getRandomIndex(colorArray)];
+      newSpan.style.fontSize = `${(Math.random() * 1.5) + 1}rem`;
+      newSpan.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
     }
     // add new span
     ransom.appendChild(newSpan);
